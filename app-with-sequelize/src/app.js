@@ -16,4 +16,6 @@ app.post('/user', User.createUser);
 
 app.put('/user/:id', User.updateUser);
 
+app.delete('/user/:id', User.deleteUser);
+
 module.exports = app;

@@ -8,12 +8,12 @@ const getAll = async () => {
 const getById = async (id) => {
     const user = await User.findByPk(id);
     return user;
-}
+};
 
 const getByIdAndEmail = async (id, email) => {
     const user = await User.findOne({ where: { id, email } });
     return user
-}
+};
 
 const createUser = async (fullName, email, phoneNum) => {
     const newUser = await User.create({ fullName, email, phoneNum});
@@ -26,10 +26,17 @@ const updateUser = async (id, fullName, email, phoneNum) => {
         { fullName, email, phoneNum },
         { where: { id } },
     );
+    return updatedUser;
+};
 
-    console.log(updatedUser);
-  return updatedUser;
-}
+
+const deleteUser = async (id) => {
+    const user = await User.destroy(
+      { where: { id } },
+    );
+    
+    return user;
+  };
 
 module.exports = {
     getAll,

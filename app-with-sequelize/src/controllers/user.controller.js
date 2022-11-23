@@ -65,6 +65,18 @@ const updateUser = async (req, res) => {
       console.log(e.message);
       res.status(500).json({ message: ERROR_MESSAGE });
     }
+};
+  
+const deleteUser = async (req, res) => {
+    try {
+      const { id } = req.params;
+      await UserService.deleteUser(id);
+  
+      return res.status(200).json({ message: 'Usuário excluído com sucesso!' });
+    } catch (e) {
+      console.log(e.message);
+      res.status(500).json({ message: ERROR_MESSAGE });
+    }
   };
   
 
@@ -73,5 +85,6 @@ module.exports = {
     getById,
     getByIdAndEmail,
     createUser,
-    updateUser
+    updateUser,
+    deleteUser,
 }
