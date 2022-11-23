@@ -34,7 +34,7 @@ const deleteUser = async (id) => {
     const user = await User.destroy(
       { where: { id } },
     );
-    
+
     return user;
   };
 
@@ -44,4 +44,5 @@ module.exports = {
     getByIdAndEmail,
     createUser,
     updateUser,
+    deleteUser,
 }
