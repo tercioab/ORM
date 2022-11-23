@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "debug": "nodemon --ignore coverage --inspect=0.0.0.0:9229 src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +20,7 @@
     "sequelize": "^6.25.8"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.5.2"
+    "sequelize-cli": "^6.5.2",
+    "nodemon": "2.0.4"
   }
 }
