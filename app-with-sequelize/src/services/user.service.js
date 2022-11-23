@@ -15,8 +15,15 @@ const getByIdAndEmail = async (id, email) => {
     return user
 }
 
+const createUser = async (fullName, email) => {
+    const newUser = await User.create({ fullName, email});
+  
+    return newUser;
+  };
+
 module.exports = {
     getAll,
     getById,
     getByIdAndEmail,
+    createUser,
 }

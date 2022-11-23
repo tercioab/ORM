@@ -12,4 +12,6 @@ app.get('/user/:id', User.getById);
 
 app.get('/user/search/:id', User.getByIdAndEmail)
 
+app.post('/user', User.createUser);
+
 module.exports = app;

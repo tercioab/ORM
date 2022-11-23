@@ -35,13 +35,27 @@ const getByIdAndEmail = async (req, res) => {
         if (!user) return res.status(404).json({ message: ERROR_FIND_USER });
         return res.status(201).json(user);
     } catch (e) {
-        console.log(e.message); 
-        res.status(500).json({message: ERROR_MESSAGE})
+        console.log(e.message);
+        res.status(500).json({ message: ERROR_MESSAGE })
     }
-}
+};
+
+const createUser = async (req, res) => {
+    try {
+      const { fullName, email, phoneNum } = req.body;
+      const newUser = await UserService.createUser(fullName, email);
+  
+      return res.status(201).json(newUser);
+    } catch (e) {
+      console.log(e.message);
+      res.status(500).json({ message: ERROR_MESSAGE });
+    }
+  };
+  
 
 module.exports = {
     getAll,
     getById,
     getByIdAndEmail,
+    createUser,
 }

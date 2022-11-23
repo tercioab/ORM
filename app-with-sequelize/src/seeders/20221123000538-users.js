@@ -12,6 +12,7 @@ module.exports = {
     {
       fullName: 'Valtercio',
       email: 'valter@gmail.com',
+      phoneNum: '9232039423',
       createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
       updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
     },
