@@ -50,6 +50,21 @@ const createUser = async (req, res) => {
       console.log(e.message);
       res.status(500).json({ message: ERROR_MESSAGE });
     }
+};
+  
+const updateUser = async (req, res) => {
+    try {
+      const { fullName, email, phoneNum } = req.body;
+      const { id } = req.params;
+      const updatedUser = await UserService.updateUser(id, fullName, email, phoneNum);
+  
+      if (!updatedUser) return res.status(404).json({ message: ERROR_FIND_USER });
+  
+      return res.status(200).json({ message: 'Usuário atualizado com sucesso!' });    
+    } catch (e) {
+      console.log(e.message);
+      res.status(500).json({ message: ERROR_MESSAGE });
+    }
   };
   
 
@@ -58,4 +73,5 @@ module.exports = {
     getById,
     getByIdAndEmail,
     createUser,
+    updateUser
 }

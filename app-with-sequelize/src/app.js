@@ -14,4 +14,6 @@ app.get('/user/search/:id', User.getByIdAndEmail)
 
 app.post('/user', User.createUser);
 
+app.put('/user/:id', User.updateUser);
+
 module.exports = app;

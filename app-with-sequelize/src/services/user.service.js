@@ -19,11 +19,22 @@ const createUser = async (fullName, email, phoneNum) => {
     const newUser = await User.create({ fullName, email, phoneNum});
 
     return newUser;
-  };
+};
+  
+const updateUser = async (id, fullName, email, phoneNum) => {
+    const [updatedUser] = await User.update(
+        { fullName, email, phoneNum },
+        { where: { id } },
+    );
+
+    console.log(updatedUser);
+  return updatedUser;
+}
 
 module.exports = {
     getAll,
     getById,
     getByIdAndEmail,
     createUser,
+    updateUser,
 }
