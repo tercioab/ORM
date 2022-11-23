@@ -43,7 +43,7 @@ const getByIdAndEmail = async (req, res) => {
 const createUser = async (req, res) => {
     try {
       const { fullName, email, phoneNum } = req.body;
-      const newUser = await UserService.createUser(fullName, email);
+      const newUser = await UserService.createUser(fullName, email, phoneNum);
   
       return res.status(201).json(newUser);
     } catch (e) {
